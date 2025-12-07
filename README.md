@@ -14,6 +14,9 @@
 By employing Computational Optimal Transport (OT) within the distillation process, VDOT ensures training stability and enhances both training and inference efficiency.
 VDOT unifies a wide range of capabilities, such as <strong>Reference-to-Video (R2V)</strong>, <strong>Video-to-Video (V2V)</strong>, <strong>Masked Video Editing (MV2V)</strong>, and arbitrary <strong>composite tasks</strong>, matching the versatility of VACE with significantly reduced inference costs.
 
+<video autoplay muted loop playsinline controls src="./assets/videos/sour_cover2.jpg" width="100%" "></video>
+
+
 ## ⚙️ Installation
 The codebase was tested with Python 3.10.13, CUDA version 12.4, and PyTorch >= 2.5.1.
 
