@@ -1,4 +1,3 @@
-<p align="center">
 # VDOT: Efficient Unified Video Creation via Optimal Transport Distillation
 [![arXiv](https://img.shields.io/badge/Arxiv-xxxx.xxxxx-b31b1b)](https://arxiv.org/)
 
