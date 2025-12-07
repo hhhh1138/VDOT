@@ -9,6 +9,22 @@
 
 <sup>1</sup>USYD, <sup>2</sup>Shanghai AI Laboratory, <sup>3</sup>BUAA, <sup>4</sup>CUHK
 
+## Introduction
+<strong>VDOT</strong> is an efficient, unified video creation model that achieves high-quality results in just 4 denoising steps. 
+By employing Computational Optimal Transport (OT) within the distillation process, VDOT ensures training stability and enhances both training and inference efficiency.
+VDOT unifies a wide range of capabilities, such as Reference-to-Video (R2V), Video-to-Video (V2V), and Masked Video Editing (MV2V), matching the versatility of VACE with significantly reduced inference costs.
+
+## ⚙️ Installation
+The codebase was tested with Python 3.10.13, CUDA version 12.4, and PyTorch >= 2.5.1.
+
+
+## 🚀 Usage
+
+
+## Acknowledgement
+We are grateful for the following awesome projects, including [VACE](https://github.com/ali-vilab/VACE), [Wan](https://github.com/Wan-Video/Wan2.1), and [Self-Forcing](https://github.com/guandeh17/Self-Forcing).
+
+
 ## BibTeX
 
 ```bibtex
