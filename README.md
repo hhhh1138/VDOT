@@ -1,3 +1,4 @@
+<p align="center">
 # VDOT: Efficient Unified Video Creation via Optimal Transport Distillation
 [![arXiv](https://img.shields.io/badge/Arxiv-xxxx.xxxxx-b31b1b)](https://arxiv.org/)
 
@@ -5,3 +6,6 @@
 
 <sup>1</sup>USYD, <sup>2</sup>Shanghai AI Laboratory, <sup>3</sup>BUAA, <sup>4</sup>CUHK
 
+## BibTeX
+
+```bibtex
