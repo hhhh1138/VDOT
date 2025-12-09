@@ -1,6 +1,6 @@
 # VDOT: Efficient Unified Video Creation via Optimal Transport Distillation
 <a href="https://arxiv.org/abs/2512.06802"><img src='https://img.shields.io/badge/VDOT-arXiv-red' alt='Paper PDF'></a>
-<a href="https://vdot-page.github.io/"><img src='https://img.shields.io/badge/VACE-Project_Page-green' alt='Project Page'></a>
+<a href="https://vdot-page.github.io/"><img src='https://img.shields.io/badge/VDOT-Project_Page-green' alt='Project Page'></a>
 <!-- <a href="https://huggingface.co/collections/ali-vilab/vace-67eca186ff3e3564726aff38"><img src='https://img.shields.io/badge/VACE-HuggingFace_Model-yellow'></a>
 <a href="https://modelscope.cn/collections/VACE-8fa5fcfd386e43"><img src='https://img.shields.io/badge/VACE-ModelScope_Model-purple'></a> -->
 
