@@ -26,9 +26,31 @@ https://github.com/user-attachments/assets/e474c322-b5d2-4617-a198-e7cbde138004
 ## ⚙️ Installation
 The codebase was tested with Python 3.10.13, CUDA version 12.4, and PyTorch >= 2.5.1.
 
+```bash
+git clone https://github.com/hhhh1138/VDOT.git && cd VDOT
+pip install torch==2.6.0 torchvision==0.21.0 --index-url https://download.pytorch.org/whl/cu124  # If PyTorch is not installed.
+pip install -r requirements.txt
+pip install wan@git+https://github.com/Wan-Video/Wan2.1
+```
+
+### Setup for Preprocess Tools 
+For the preprocessing tools, such as extracting the source video and mask video of **classic video creation tasks (such as V2V and MV2V tasks)**, we recommend using the annotator tools in the [VACE](https://github.com/ali-vilab/VACE) repository. 
+
+For the **more complicated creation tasks**, such as video character replacement and video try-on tasks, they typically involve more complex input conditions: a restricted pose source video, a mask video for the target area, and images of the person or garments to be replaced. 
+For details on the processing methods, please refer to our [scripts]() folder.
 
 ## 🚀 Usage
+In VDOT, users can generate videos based on any combination of input conditions in just four denoising steps. 
 
+### Inference 
+```bash
+....
+```
+
+### Training 
+```bash
+....
+```
 
 ## Acknowledgement
 We are grateful for the following awesome projects, including [VACE](https://github.com/ali-vilab/VACE), [Wan](https://github.com/Wan-Video/Wan2.1), and [Self-Forcing](https://github.com/guandeh17/Self-Forcing).
@@ -37,3 +59,10 @@ We are grateful for the following awesome projects, including [VACE](https://git
 ## BibTeX
 
 ```bibtex
+@article{wang2025vdot,
+  title={VDOT: Efficient Unified Video Creation via Optimal Transport Distillation},
+  author={Wang, Yutong and Zhang, Haiyu and Xue, Tianfan and Qiao, Yu and Wang, Yaohui and Xu, Chang and Chen, Xinyuan},
+  journal={arXiv preprint arXiv:2512.06802},
+  year={2025}
+}
+```
