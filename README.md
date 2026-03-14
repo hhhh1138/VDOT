@@ -13,11 +13,14 @@
 By employing Computational Optimal Transport (OT) within the distillation process, VDOT ensures training stability and enhances both training and inference efficiency.
 VDOT unifies a wide range of capabilities, such as <strong>Reference-to-Video (R2V)</strong>, <strong>Video-to-Video (V2V)</strong>, <strong>Masked Video Editing (MV2V)</strong>, and arbitrary <strong>composite tasks</strong>, matching the versatility of VACE with significantly reduced inference costs.
 
-
-
 https://github.com/user-attachments/assets/e474c322-b5d2-4617-a198-e7cbde138004
 
-
+## 🎉 News
+- [x] Mar 15, 2026: 🔥Release code of model training, inference, and gradio demos. 
+- [x] Mar 14, 2026: 🔥VDOT-14B is now avaiable at [HuggingFace](https://huggingface.co/yutongwang1012/VDOT). 
+- [x] Mar 14, 2026: 🔥UVCBench is now avaiable at [HuggingFace](https://huggingface.co/datasets/yutongwang1012/UVCBench). 
+- [x] Feb 21, 2026: [VDOT](https://vdot-page.github.io/) is accepted by CVPR 2026.
+- [x] Dec 7, 2025: We propose [VDOT](https://vdot-page.github.io/), a 4-step unified video creation model based on VACE.
 
 
 ## ⚙️ Installation
