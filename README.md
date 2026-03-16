@@ -39,17 +39,56 @@ For the preprocessing tools, such as extracting the source video and mask video 
 For the **more complicated creation tasks**, such as video character replacement and video try-on tasks, they typically involve more complex input conditions: a restricted pose source video, a mask video for the target area, and images of the person or garments to be replaced. 
 For details on the processing methods, please refer to our [scripts]() folder.
 
+### Local Directories Setup
+We recommend to organize local directories as:
+```angular2html
+VDOT
+├── ...
+├── benchmarks
+│   ├── VACE-Benchmark
+│   └── UVCBench
+├── models
+│   ├── VACE-Annotators
+│   ├── VACE-Wan2.1-14B
+│   └── VDOT ### (download from [huggingface](https://huggingface.co/yutongwang1012/VDOT))
+│       └── google
+│       ├── vdot-weights
+│       ├   └── vdot_14b.pt
+│       ├── models_t5_umt5-xxl-enc-bf16.pth
+│       └── Wan2.1_VAE.pth
+├── inference
+└── training
+```
+
 ## 🚀 Usage
 In VDOT, users can generate videos based on any combination of input conditions in just four denoising steps. 
 
 ### Inference 
 ```bash
-....
+# See the commands in ``run_vdot.sh'', we recommend using 4 GPUs for the inference of VDOT-14B.
+torchrun --nproc_per_node=4 --nnodes=1 inference/vace_wan_inference.py \
+    --dit_fsdp \
+    --t5_fsdp \
+    --ulysses_size 4 \
+    --ring_size 1 \
+    --size 480p \
+    --sample_guide_scale 1 \
+    --sample_steps 4 \
+    --src_video example_video_1.mp4 \
+    --src_mask example_video_2.mp4 \
+    --src_ref_images example_image_1.png,example_image_2.png \
+    --prompt "xxx"
+```
+
+### Gradio Demo 
+```bash
+torchrun --nproc_per_node=4 --nnodes=1 inference/vdot_gradio.py
 ```
 
 ### Training 
 ```bash
-....
+cd training
+bash train_vdot.sh
 ```
 
 ## Acknowledgement
