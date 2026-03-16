@@ -27,19 +27,6 @@ from .utils.fm_solvers_unipc import FlowUniPCMultistepScheduler
 from .modules.controlnet import WanXControlNet
 from diffusers.models.transformers.transformer_wan import WanRotaryPosEmbed
 
-# import io
-# proxy_url = "http://zhanghaiyu:CZ3ExvUOFCIdCd37CbKANIhpuhKiM5rY2HB4ljfCTevSlonJOyf84vAzhJJt@10.1.20.50:23128/"
-# os.environ.pop('HTTP_PROXY', None)
-# os.environ.pop('HTTPS_PROXY', None)
-# os.environ.pop('http_proxy', None)
-# os.environ.pop('https_proxy', None)
-# from petrel_client.client import Client
-# client = Client('~/petreloss.conf', enable_mc=True)
-# os.environ['HTTP_PROXY'] = proxy_url
-# os.environ['HTTPS_PROXY'] = proxy_url
-# os.environ['http_proxy'] = proxy_url
-# os.environ['https_proxy'] = proxy_url
-
 
 class WanI2V:
 
@@ -112,17 +99,12 @@ class WanI2V:
             tokenizer_path=os.path.join(checkpoint_dir, config.clip_tokenizer))
 
         logging.info(f"Creating WanModel from {checkpoint_dir}")
-        # self.model = WanModel.from_pretrained(checkpoint_dir)
-        # self.model.eval().requires_grad_(False)
+
 
         self.model = WanModelWithCamera.from_pretrained(f"/mnt/petrelfs/zhanghaiyu.p/s_data/Wan2.1-I2V-480P/")
-        ## 初始化相机相关module
-        # self.model.camera_patch_embedding = MaskCamEmbed()
         self.model.camera_patch_embedding = torch.nn.Conv3d(
                             6, self.model.dim, kernel_size=self.model.patch_size, stride=self.model.patch_size)
-        # self.model.camera_controlnet = WanXControlNet()
-        # self.model.camera_rope = WanRotaryPosEmbed(1024 // 16,
-        #                                            self.model.patch_size, 1024)
+
 
         self.model.to(self.param_dtype)
         self.model.eval()
@@ -130,7 +112,7 @@ class WanI2V:
 
         if dit_path is not None:
             if dit_path.startswith("p2_norm") or dit_path.startswith("d_ceph"):
-                proxy_url = "http://zhanghaiyu:CZ3ExvUOFCIdCd37CbKANIhpuhKiM5rY2HB4ljfCTevSlonJOyf84vAzhJJt@10.1.20.50:23128/"
+                proxy_url = "xxx"
                 os.environ.pop('HTTP_PROXY', None)
                 os.environ.pop('HTTPS_PROXY', None)
                 os.environ.pop('http_proxy', None)

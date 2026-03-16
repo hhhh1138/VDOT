@@ -285,12 +285,12 @@ class Trainer:
             }
 
         if self.is_main_process:
-            proxy_url = "http://wangyutong:R45rQPTLfFdvmzL5hxLIi97DQla180zszr89SfoVWvkeJsAgkycikGslsGGl@10.1.20.50:23128/"
+            proxy_url = "xxxx"
             os.environ.pop('HTTP_PROXY', None)
             os.environ.pop('HTTPS_PROXY', None)
             os.environ.pop('http_proxy', None)
             os.environ.pop('https_proxy', None)
-            # gcc:wangyutong/
+            
             weight_path = os.path.join(self.output_path, f"checkpoint_model_{self.step:06d}", "model.pt")
             # with io.BytesIO() as buffer:
             torch.save(state_dict, "ckpts/model.pt")
@@ -298,7 +298,7 @@ class Trainer:
             result = subprocess.run(
                 ["aws", "s3", 
                  "cp",
-                 "--endpoint-url=http://d-ceph-ssd-inside.pjlab.org.cn:80",
+                 "--endpoint-url=xxx",
                  "ckpts/model.pt",
                  weight_path], stderr=None,
                 stdout=None)

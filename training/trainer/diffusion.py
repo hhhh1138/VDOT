@@ -23,7 +23,7 @@ class Trainer:
         torch.backends.cuda.matmul.allow_tf32 = True
         torch.backends.cudnn.allow_tf32 = True
 
-        launch_distributed_job()
+        #launch_distributed_job()
         global_rank = dist.get_rank()
 
         self.dtype = torch.bfloat16 if config.mixed_precision else torch.float32

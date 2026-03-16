@@ -21,19 +21,6 @@ import numpy as np
 import imageio
 import torchvision
 
-# proxy_url = "http://zhanghaiyu:CZ3ExvUOFCIdCd37CbKANIhpuhKiM5rY2HB4ljfCTevSlonJOyf84vAzhJJt@10.1.20.50:23128/"
-# os.environ.pop('HTTP_PROXY', None)
-# os.environ.pop('HTTPS_PROXY', None)
-# os.environ.pop('http_proxy', None)
-# os.environ.pop('https_proxy', None)
-# from petrel_client.client import Client
-# client = Client('~/petreloss.conf', enable_mc=True)
-# os.environ['HTTP_PROXY'] = proxy_url
-# os.environ['HTTPS_PROXY'] = proxy_url
-# os.environ['http_proxy'] = proxy_url
-# os.environ['https_proxy'] = proxy_url
-
-
 class Trainer:
     def __init__(self, config):
         self.config = config
@@ -251,14 +238,14 @@ class Trainer:
             }
 
         if self.is_main_process:
-            proxy_url = "http://zhanghaiyu:CZ3ExvUOFCIdCd37CbKANIhpuhKiM5rY2HB4ljfCTevSlonJOyf84vAzhJJt@10.1.20.50:23128/"
+            proxy_url = "xxx"
             os.environ.pop('HTTP_PROXY', None)
             os.environ.pop('HTTPS_PROXY', None)
             os.environ.pop('http_proxy', None)
             os.environ.pop('https_proxy', None)
             weight_path = os.path.join(self.output_path, f"checkpoint_model_{self.step:06d}", "model.pt")
             # with io.BytesIO() as buffer:
-            torch.save(state_dict, "ckpts/model_gan.pt")
+            torch.save(state_dict, "ckpts/model.pt")
             result = subprocess.run(
                 ["aws", "s3", "cp",
                  "ckpts/model.pt",
@@ -270,42 +257,7 @@ class Trainer:
             os.environ['HTTPS_PROXY'] = proxy_url
             os.environ['http_proxy'] = proxy_url
             os.environ['https_proxy'] = proxy_url
-    # def save(self):
-    #     print("Start gathering distributed model states...")
-    #     generator_state_dict = fsdp_state_dict(
-    #         self.model.generator)
-    #     critic_state_dict = fsdp_state_dict(
-    #         self.model.fake_score)
-    #     if self.config.use_lora:
-    #         critic_state_dict = {k: v for k, v in critic_state_dict.items() if "lora_" in k}
-    #
-    #     if self.config.ema_start_step < self.step:
-    #         state_dict = {
-    #             "generator": generator_state_dict,
-    #             "critic": critic_state_dict,
-    #             # "generator_ema": self.generator_ema.state_dict(),
-    #         }
-    #     else:
-    #         state_dict = {
-    #             "generator": generator_state_dict,
-    #             "critic": critic_state_dict,
-    #         }
-    #
-    #     if self.is_main_process:
-    #         proxy_url = "http://zhanghaiyu:CZ3ExvUOFCIdCd37CbKANIhpuhKiM5rY2HB4ljfCTevSlonJOyf84vAzhJJt@10.1.20.50:23128/"
-    #         os.environ.pop('HTTP_PROXY', None)
-    #         os.environ.pop('HTTPS_PROXY', None)
-    #         os.environ.pop('http_proxy', None)
-    #         os.environ.pop('https_proxy', None)
-    #         weight_path = os.path.join(self.output_path, f"checkpoint_model_{self.step:06d}", "model.pt")
-    #         with io.BytesIO() as buffer:
-    #             torch.save(state_dict, buffer)
-    #             client.put(weight_path, buffer.getvalue())
-    #
-    #         os.environ['HTTP_PROXY'] = proxy_url
-    #         os.environ['HTTPS_PROXY'] = proxy_url
-    #         os.environ['http_proxy'] = proxy_url
-    #         os.environ['https_proxy'] = proxy_url
+
 
     def fwdbwd_one_step(self, batch, train_generator):
         self.model.eval()  # prevent any randomness (e.g. dropout)

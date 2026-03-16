@@ -25,7 +25,7 @@ class Trainer:
         torch.backends.cuda.matmul.allow_tf32 = True
         torch.backends.cudnn.allow_tf32 = True
 
-        launch_distributed_job()
+        #launch_distributed_job()
         global_rank = dist.get_rank()
         self.world_size = dist.get_world_size()
 
