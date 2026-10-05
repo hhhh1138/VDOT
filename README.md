@@ -16,6 +16,7 @@ VDOT unifies a wide range of capabilities, such as <strong>Reference-to-Video (R
 https://github.com/user-attachments/assets/e474c322-b5d2-4617-a198-e7cbde138004
 
 ## 🎉 News
+- [x] Oct 5, 2026: 🔥Release [VDOT++](https://arxiv.org/pdf/2610.03221), the robust extension of VDOT, will release code and weights before mid-October.
 - [x] Mar 15, 2026: 🔥Release code of model training, inference, and gradio demos. 
 - [x] Mar 14, 2026: 🔥VDOT-14B is now avaiable at [HuggingFace](https://huggingface.co/yutongwang1012/VDOT). 
 - [x] Mar 14, 2026: 🔥UVCBench is now avaiable at [HuggingFace](https://huggingface.co/datasets/yutongwang1012/UVCBench). 
